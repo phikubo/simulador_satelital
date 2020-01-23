@@ -1,1 +1,8 @@
 Archivo de prueba en git.
+Cómo resolver conflictos y fusionar ramas:
+https://www.youtube.com/watch?v=jWnXEyM5bps
+
+Otros enlaces utiles
+#https://www.youtube.com/watch?v=CRlGDDprdOQ
+#https://www.youtube.com/watch?v=xl3nxfbGkzY
+#https://www.youtube.com/watch?v=MnUd31TvBoU
