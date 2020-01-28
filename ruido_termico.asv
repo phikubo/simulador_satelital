@@ -10,10 +10,15 @@
 %vector de valores_g de g o l, pero en g.
 %en .super: organizar los valores g, si es l entonces valor[i]=1/l, sino valor[i]=g
 
+valores_g=[1.5 1.1 1.2];
+%tipo= ["l", "l", "g", "g"];
+%temperatura=[200 400 800 1000];
 to=290;
 denominador=1;
 ruido_total=0;
-valores_g=[1.5 1.1 1.2];
+%if l entonces  valor es 1/l
+%todos los elementos de valores_g son g
+
 tipo= ["g", "g", "g"];
 temperatura=[700 300 450];
 
@@ -32,13 +37,11 @@ for (i=1:length(valores_g))
     	denominador=1;
     else
         %disp('valor g' + valores_g(i-1))
-        
-        %ganancia=valores_g(i-1)
-    	denominador=valores_g(i-1)*denominador;	
+        numerador
+        test=valores_g(i-1)
+    	denominador=valores_g(i-1)*denominador	
     end
     %test=numerador/denominador
-    numerador
-    denominador
     ruido_total=ruido_total+(numerador/denominador)
 end
 
