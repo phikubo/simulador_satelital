@@ -21,7 +21,6 @@ for (i=1:length(valores_g))
 	if tipo(i)=="l"
 		numerador=to*(valores_g(i)-1);
         disp('L')
-
 	else
 		numerador=temperatura(i);
         disp('G')
@@ -31,9 +30,6 @@ for (i=1:length(valores_g))
         
     	denominador=1;
     else
-        %disp('valor g' + valores_g(i-1))
-        
-        %ganancia=valores_g(i-1)
     	denominador=valores_g(i-1)*denominador;	
     end
     %test=numerador/denominador
