@@ -7,9 +7,12 @@ function ruido_total = ruido_recepcion(valores_g, tipo, temperatura)
     %valores_g=[1.5 1.1 1.2];
     %tipo= ["g", "g", "g"];
     %temperatura=[700 300 450];
-
-    for (i=1:length(valores_g))
-        if tipo(i)=="l"
+    length(valores_g)
+    valores_g
+    tipo
+    length(tipo)
+    for (i=1:length(tipo))
+        if string(tipo(i))=="l"
             %test=(valores_g(i))
         	%test2=1/valores_g(i)
             %no existe i-1
@@ -17,35 +20,34 @@ function ruido_total = ruido_recepcion(valores_g, tipo, temperatura)
             if i==1
                 denominador=1;
             else
-                if tipo(i-1) == "l"                    
-                    denominador=(1/valores_g(i-1))*denominador;
+                if string(tipo(i-1))=="l"
+                denominador=(1/valores_g(i-1))*denominador;
                 else
-                    denominador=valores_g(i-1)*denominador;
+                denominador=(valores_g(i-1))*denominador;
                 end
             end
             disp('L')
+            
         else
             numerador=temperatura(i);
             if i==1
                 denominador=1;
             else
-                if tipo(i-1) == "l"                    
-                    denominador=(1/valores_g(i-1))*denominador;
+                if string(tipo(i-1))=="l"
+                denominador=(1/valores_g(i-1))*denominador;
                 else
-                    denominador=valores_g(i-1)*denominador;
+                denominador=(valores_g(i-1))*denominador;
                 end
+                %denominador=valores_g(i-1)*denominador;
             end
             disp('G')
         end
 
-        if i==1
-            denominador=1;
-        end
-        
+            
         numerador
         denominador
-        %res=(numerador/denominador);
-        ruido_total=ruido_total+(numerador/denominador);
+        disp('---------------------------------')
+        ruido_total=ruido_total+(numerador/denominador)
     end
 
 end
