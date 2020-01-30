@@ -17,7 +17,11 @@ function ruido_total = ruido_recepcion(valores_g, tipo, temperatura)
             if i==1
                 denominador=1;
             else
-                denominador=(1/valores_g(i-1))*denominador;
+                if tipo(i-1) == "l"                    
+                    denominador=(1/valores_g(i-1))*denominador;
+                else
+                    denominador=valores_g(i-1)*denominador;
+                end
             end
             disp('L')
         else
@@ -25,7 +29,11 @@ function ruido_total = ruido_recepcion(valores_g, tipo, temperatura)
             if i==1
                 denominador=1;
             else
-                denominador=valores_g(i-1)*denominador;
+                if tipo(i-1) == "l"                    
+                    denominador=(1/valores_g(i-1))*denominador;
+                else
+                    denominador=valores_g(i-1)*denominador;
+                end
             end
             disp('G')
         end
