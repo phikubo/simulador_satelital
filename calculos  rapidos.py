@@ -127,6 +127,13 @@ def temperatura_equivalente(param):
 	print(param, " temperatura equivalente ", te, " grados")
 	return te
 
+def calcula_cn_total(cn1, cn2):
+	cn1db=dB_veces(cn1)
+	cn2db=dB_veces(cn2)
+	CNTveces = 1/((1/cn1db)+(1/cn2db))
+	CNT=veces_dB(CNTveces)
+	print("la suma de ", cn1, " y ", cn2, " es: ", CNT)
+	return CNT
 def prueba2():
 	veces_dB(10/5)
 	dB_veces(veces_dB(10/5))
@@ -147,6 +154,7 @@ def menu():
     print ("\t4 - Te si Fig_ruido")
     print ("\t5 - Landa")
     print ("\t6 - G_x si eficiencia, diametro, landa")
+    print ("\t7 - CN total")
     print("------------")
  
 
@@ -162,28 +170,28 @@ def bucle(flag):
         	cantidad=input("Cantidad>> ")
         	try:
         		dB_veces(float(cantidad))
-        		time.sleep(2)
+        		time.sleep(4)
         	except Exception as e:
         		print(e)
-        		time.sleep(2)
+        		time.sleep(4)
 
-        elif opcion_menu==str(2):
+        elif opcion_menu==str(4):
         	cantidad=input("Cantidad>> ")
         	veces_dB(float(cantidad))
-        	time.sleep(2)           
+        	time.sleep(4)           
         elif opcion_menu==str(3):
         	cantidad=input("Cantidad>> ")
         	veces_dBm(float(cantidad))
-        	time.sleep(2)
+        	time.sleep(4)
 
         elif opcion_menu==str(4):
         	cantidad=input("Cantidad>> ")
         	temperatura_equivalente(float(cantidad))
-        	time.sleep(2)
+        	time.sleep(4)
         elif opcion_menu==str(5):
         	cantidad=input("Freq en [Ghz]>> ")
         	calcular_landa(float(cantidad))
-        	time.sleep(2) 
+        	time.sleep(4) 
         elif opcion_menu==str(6):
         	cantidad1=input("Eficiencia>> ")
         	cantidad2=input("Diametro en [m]>> ")
@@ -191,6 +199,12 @@ def bucle(flag):
         	otra_ganancia(float(cantidad1), float(cantidad2), float(cantidad3))
         	time.sleep(5)   
 
+        elif opcion_menu==str(7):
+        	cantidad1=input("cn1 >> ")
+        	cantidad2=input("cn2 >> ")
+
+        	calcula_cn_total(float(cantidad1),float(cantidad2))
+        	time.sleep(8) 
             
         elif opcion_menu==str(9):
             print("")
