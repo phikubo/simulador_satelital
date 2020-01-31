@@ -23,13 +23,16 @@ def calcular_altitud(lat, lon):
 
 
 def calcular_landa(frecuencia):
+	#entra en Ghz
 
+	frecuencia=frecuencia*10**9
 	#land=c/f
-	global VEL_LUZ
-	landa=frecuencia/VEL_LUZ
+	vel_luz=3*(10**8)
+	#print(frecuencia, vel_luz)
+	landa=vel_luz/frecuencia
 	#print(frecuencia, landa, frecuencia/10**9, (frecuencia/10**9)/0.36)
-	landa=(frecuencia/10**9)/0.3
-	print("landa", landa)
+	#landa=(frecuencia/10**9)/0.3
+	print("landa", landa, "en [m]")
 	return landa
 
 
@@ -46,6 +49,11 @@ def theta_3db(landa, diametro):
 def ganancia(eficiencia, theta3db):
 	return eficiencia*(48360/(theta3db**2))
 
+def otra_ganancia(eficiencia, diametro, landa):
+	theta3db=theta_3db(landa,diametro)
+	res=eficiencia*(48360/(theta3db**2))
+	print("Gx: ", res, "-----> tambien: ", 10*math.log10(res), " en [dB]")
+	return res
 
 def c_band():
 	#Standard C Band	5.850–6.425	3.625–4.200 en GHz
@@ -137,6 +145,8 @@ def menu():
     print ("\t2 - Veces a dB")
     print ("\t3 - Veces a dBm")
     print ("\t4 - Te si Fig_ruido")
+    print ("\t5 - Landa")
+    print ("\t6 - G_x si eficiencia, diametro, landa")
     print("------------")
  
 
@@ -169,7 +179,17 @@ def bucle(flag):
         elif opcion_menu==str(4):
         	cantidad=input("Cantidad>> ")
         	temperatura_equivalente(float(cantidad))
-        	time.sleep(2)  
+        	time.sleep(2)
+        elif opcion_menu==str(5):
+        	cantidad=input("Freq en [Ghz]>> ")
+        	calcular_landa(float(cantidad))
+        	time.sleep(2) 
+        elif opcion_menu==str(6):
+        	cantidad1=input("Eficiencia>> ")
+        	cantidad2=input("Diametro en [m]>> ")
+        	cantidad3=input("Landa en [m]>> ")
+        	otra_ganancia(float(cantidad1), float(cantidad2), float(cantidad3))
+        	time.sleep(5)   
 
             
         elif opcion_menu==str(9):
