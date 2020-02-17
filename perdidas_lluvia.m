@@ -49,7 +49,7 @@ function a_lluvia = perdidas_lluvia(freq, latitud, longitud, inclinacion,intensi
     if indisponibilidad >= 1 | abs(latitud)>=36
         betta=0;
         
-    elseif (indisponibilidad<1 | abs(latitud) <36) && (inclinacion>=25)
+    elseif (indisponibilidad<1 && abs(latitud) <36) && (inclinacion>=25)
         betta=-0.005*(abs(latitud)-36);
         
     else
