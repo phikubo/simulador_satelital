@@ -36,7 +36,6 @@ function vlrAte = atenuacionGases(p,t,densAgua,ro,f)
     
     ho = 5.386-(3.32734*10^-2)*f + (1.871*10-3)*f^2- (3.52087*10^-5)*f^3+ 83.6/((f-60)^2+1.2);
     
-    hw = 1.65*(1+(1.61/((f-22.32)^2+2.91))+(3.33/(f-183.3)^2)+(1.9/((f-325.1)^2+3.34))); 
-    
-    vlrAte = yo*ho + yw*hw;     %Atenuacion total por gases
+    hw = 1.65(1+(1.61/((f-22.32)^2+2.91))+(3.33/(f-183.3)^2)+(1.9/((f-325.1)^2+3.33))) 
+    vlrAte = (yo+yw)*ro;     %Atenuacion total por gases
 end
