@@ -13,7 +13,7 @@ function vlrAte = atenuacionGasesOtra(p,t,densAgua,ro,f)
     sum1 = (7.34*((rp)^2)*((rt)^3))/((f)^2)+(0.36*((rp)^2)*((rt)^2));
     sum2 = ((0.3429*b*yop)/(((54-f)^a)+b));
     
-    yo= (sum1+sum2)*((f)^2)*((10)^(-3));
+    yo= (sum1+sum2)*((f)^2)*((10)^(-3))
     
     e1 = (0.9544*rp*(rt^0.69)) + (0.0061*densAgua);
     e2 = (0.95*rp*(rt^0.64)) + (0.0067*densAgua);
@@ -37,7 +37,12 @@ function vlrAte = atenuacionGasesOtra(p,t,densAgua,ro,f)
     s10 = (302.6*e5*g752*exp(0.41*(1-rt)))/(((f-752)^2));
     s11 = (f^2)*densAgua*(10^-4);
     
-    yw = (s1+s2+(rt^2.5)*(s3+s4+s5+s6+s7+s8+s9+s10))*s11;
+    yw = (s1+s2+(rt^2.5)*(s3+s4+s5+s6+s7+s8+s9+s10))*s11
     
-    vlrAte = (yo+yw)*ro;
+    ho = 5.386-(3.32734*10^-2)*f + ((1.87185*10-3)*f^2)- ((3.52087*10^-5)*f^3)+ (83.26/((f-60)^2+1.2))
+    
+    hw = 1.65*(1+(1.61/((f-22.32)^2+2.91))+(3.33/(f-183.3)^2)+(1.9/((f-325.1)^2+3.34))) 
+    
+    vlrAte = yo*ho + yw*hw;     %Atenuacion total por gases
+    %vlrAte = vlrAte/sind(ro);
 end
