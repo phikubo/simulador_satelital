@@ -2,7 +2,7 @@
 
 function a_lluvia = perdidas_lluvia(freq, latitud, longitud, inclinacion,intensidad_lluvia, factor_k, factor_a, hs, ho , indisponibilidad)
 
-    longO = freq/(0.3); %longitud de onda 
+    longO = (0.3)/ freq; %longitud de onda 
      %----------------------------------------
     %paso 1: determinar hr (recomendacion p.839)
     hr = ho+0.36;

@@ -10,6 +10,8 @@ function vlrcent = centelleo(f,elevacion,latitud)
     elseif f >= 1 && f <=6
             if latitud < 10 && latitud > -10
                 vlrcent = 3;
+            else
+                vlrcent = 0;
             end
             
     else
