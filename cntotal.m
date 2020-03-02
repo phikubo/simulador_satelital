@@ -5,6 +5,6 @@ dsc = 10^(CNdsc/10);
 
 CNTveces = 1/((1/asc)+(1/dsc));
 
-CNT = 10*log(CNTveces);
+CNT = 10*log10(CNTveces);
 
 end
